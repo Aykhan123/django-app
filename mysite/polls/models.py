@@ -21,6 +21,16 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text
+    
+
+# myapp/models.py
+# from django.db import models
+
+# class MyModel(models.Model):
+#     name = models.CharField(max_length=100)
+#     email = models.EmailField()
+#     # Add other fields as needed
+
 
 
 # class Question(models.Model):

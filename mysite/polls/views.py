@@ -13,7 +13,7 @@ def diff(request):
     return HttpResponse("Hello, world")
 
 def bye(request):
-    return HttpResponse("Goodbye!")
+    return render(request, "base.html")
 
 def get_curr_rate(request):
 	from_currency="USD"
