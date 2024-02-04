@@ -1,9 +1,13 @@
 from django.shortcuts import render
+from .models import Question
+from django.http import HttpResponse
+import requests
+
+
 
 # Create your views here.
 
-from django.http import HttpResponse
-import requests
+
 
 
 def index(request):
@@ -22,3 +26,7 @@ def get_curr_rate(request):
 	response = requests.get(url)
 	res = response.json()
 	return HttpResponse(str(res))
+
+def questions(request):
+	item = Question.objects.all()
+	return render(request, "questions.html", {"questions": item} )
