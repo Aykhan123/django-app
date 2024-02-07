@@ -2,10 +2,19 @@ from django.shortcuts import render
 from .models import Question
 from django.http import HttpResponse
 import requests
-
+from .forms import questionForm
 
 
 # Create your views here.
+
+def create_question(request):
+	if request.method == "POST":
+		form = questionForm(request.POST)
+		form.save()
+	else:
+		form = questionForm
+
+	return render(request, 'questions.html', {'form': form})
 
 
 
@@ -29,4 +38,4 @@ def get_curr_rate(request):
 
 def questions(request):
 	item = Question.objects.all()
-	return render(request, "questions.html", {"questions": item} )
+	return render(request, "questions.html", {"questions": item}  )

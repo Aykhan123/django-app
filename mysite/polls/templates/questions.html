@@ -6,3 +6,13 @@
     <li>{{ question.question_text }}</li>
 {% endfor %}
 </ul>
+
+
+<body>
+    <form id="myForm" action = "" method = POST>
+        {% csrf_token %}
+        <label for="textInput">Enter Text:</label>
+        <input type="text" id="textInput" name="textInput" required>
+        <button type="submit" >Submit</button>
+    </form>
+</body>
