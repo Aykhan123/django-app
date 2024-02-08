@@ -1,22 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Question
 from django.http import HttpResponse
 import requests
 from .forms import questionForm
 
 
+
 # Create your views here.
 
 def create_question(request):
-	if request.method == "POST":
+	if request.method == 'POST':
 		form = questionForm(request.POST)
-		form.save()
+		if form.is_valid():
+			form.save()
+			return redirect('questions.html')
 	else:
-		form = questionForm
-
-	return render(request, 'questions.html', {'form': form})
-
-
+		form = questionForm()
+	return render(request, 'form.html', {'form': form})
 
 
 def index(request):
