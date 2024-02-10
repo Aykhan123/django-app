@@ -29,3 +29,6 @@ pull requests should have the following format:
     feat(**title**): description
     title can be the following:
         django, api, frontend, ci, scripts
+
+
+Always provide a few sentences in the pull requests description describing the fix/feature being implemented. Explain technical decisions that were made. Explain any follow up work that should be done.
