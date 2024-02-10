@@ -1,0 +1,8 @@
+<body>
+    <form id="myForm" action = "" method = POST>
+        <label for="textInput">Enter Text:</label>
+        <input type="text" id="textInput" name="textInput" required>
+        <button type="submit" >Submit</button>
+        {% csrf_token %}
+    </form>
+</body>
