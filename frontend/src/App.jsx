@@ -19,13 +19,18 @@ function App() {
     p: 4,
   };
 
+  const [questions, setQuestions] = useState([])
+
   useEffect(() => {
     console.log(import.meta.env.VITE_API_URL)
+    let data = fetch('http://127.0.0.1:8000/question_data').then((response) => response.json()).then((data) => data.data)
+    setQuestions(data[0])
 
-  })
+  }, [])
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  console.log(questions);
 
 
 //   <Button onClick={handleOpen}>Open modal</Button>
@@ -62,6 +67,7 @@ function App() {
     <Typography id="modal-modal-description" sx={{ mt: 2 }} color='black'>
       Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
     </Typography>
+    {/* {questions} */}
   </Box>
         
         

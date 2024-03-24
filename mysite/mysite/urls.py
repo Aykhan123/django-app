@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from polls.views import diff, bye, get_curr_rate_json, questions, create_question
+from polls.views import diff, bye, get_curr_rate_json, questions, create_question, question_data
 
 urlpatterns = [
     path("get_curr_rate_json", get_curr_rate_json),
@@ -26,5 +26,6 @@ urlpatterns = [
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
     path("questions", questions),
+    path("question_data", question_data),
     path('create_question', create_question)
 ]

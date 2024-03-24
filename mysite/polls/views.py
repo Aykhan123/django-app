@@ -44,3 +44,8 @@ def get_curr_rate_json(request):
 def questions(request):
 	item = Question.objects.all()
 	return render(request, "questions.html", {"questions": item}  )
+
+def question_data(request):
+	questions = Question.objects.all()
+	serialized_questions = [question.question_text for question in questions]
+	return JsonResponse({ "data": serialized_questions })
