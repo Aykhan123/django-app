@@ -11,6 +11,8 @@
 # - feature to exchange from one currency to another
 # - provide information about currency of choice ex. news, blogs etc.
 
+Tool to assist with Stock/Currency trading.
+
 https://flank.github.io/flank/pr_titles/
 
 For new features follow these instructions:
@@ -30,5 +32,17 @@ pull requests should have the following format:
     title can be the following:
         django, api, frontend, ci, scripts
 
+Always link github issue when creating a pull request
 
 Always provide a few sentences in the pull requests description describing the fix/feature being implemented. Explain technical decisions that were made. Explain any follow up work that should be done.
+
+
+
+Run a django shell:
+python3 manage.py shell
+
+```
+from polls.models import Question
+questions = Question.objects.filter(question_text="whats up?")
+questions = Question.objects.all()
+```

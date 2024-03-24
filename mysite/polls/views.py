@@ -10,8 +10,7 @@ from .forms import questionForm
 
 def create_question(request):
 	if request.method == 'POST':
-		question = request.POST['textInput']
-		form = questionForm({"question_text":question})
+		form = questionForm(request.POST)
 		if form.is_valid():
 			form.save()
 			return redirect('/questions')
