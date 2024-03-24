@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-tbclv@o1-9otuc5(5t@owm_00ii3!^c5d7i&s-yl_=pkpmsxr9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
