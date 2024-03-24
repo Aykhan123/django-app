@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Question
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import requests
 from .forms import questionForm
+from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -25,16 +26,20 @@ def index(request):
 def diff(request):
     return HttpResponse("Hello, world")
 
-def bye(request):
-    return render(request, "base.html")
+from rest_framework.decorators import api_view
 
-def get_curr_rate(request):
+@api_view(['GET'])
+def bye(request):
+	# print("yo", request.__dict__)
+	return HttpResponse("Hello, world")
+
+def get_curr_rate_json(request):
 	from_currency="USD"
 	currency="JPY"
 	url =  f"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={from_currency}&to_currency={currency}&apikey=747ZS9QSN9N26E74"
 	response = requests.get(url)
 	res = response.json()
-	return HttpResponse(str(res))
+	return JsonResponse(res)
 
 def questions(request):
 	item = Question.objects.all()

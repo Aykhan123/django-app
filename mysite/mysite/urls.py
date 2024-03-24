@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from polls.views import diff, bye, get_curr_rate, questions, create_question
+from polls.views import diff, bye, get_curr_rate_json, questions, create_question
 
 urlpatterns = [
-    path("get_curr_rate", get_curr_rate),
+    path("get_curr_rate_json", get_curr_rate_json),
     path("bye", bye),
     path("base", include("polls.urls")),
     path("", diff),
