@@ -109,6 +109,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost']
+ALLOWED_HOSTS = [
+    'localhost',
+],
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8000',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
