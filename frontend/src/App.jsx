@@ -41,6 +41,7 @@ function App() {
     console.log(questionText)
   }
 
+
   const callBack = async () => {
     const data = {
       question_text: questionText
@@ -49,13 +50,17 @@ function App() {
     const result = await fetch('http://127.0.0.1:8000/create_question', {
       method: 'POST',
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type' : 'application/json',
       },
       body: JSON.stringify(data)
     })
-    const response = await result.json()
-    console.log(response)
-  
+    // const response = await result.json()
+    // console.log(response)
+    if (result.ok) {
+      if (result.redirected) {
+        window.location.href = result.url;
+      } 
+    }
   }
 
 
